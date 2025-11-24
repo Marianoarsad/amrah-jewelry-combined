@@ -3,7 +3,6 @@ export default class Admin{
         if(typeof name !== 'string' || !name) throw new Error('invalid name');
         id = this.id;
         name = this.name;
-        permissions = this.permissions; // 0 view; 1 write; 3 edit and delete
         created_at = new Date().toISOString;
         modified_at = new Date().toISOString
     }

@@ -1,7 +1,6 @@
 import Product from "../models/Product.js";
 import db from "../firebaseConfiguration.js";
 import {collection, doc, addDoc, getDoc, getDocs, updateDoc, deleteDoc, orderBy, where, query, limit } from "firebase/firestore";
-//query and limit are not read. furthermore limit does not exist 
 const now = () => new Date().toISOString();
 
 /**
@@ -44,7 +43,7 @@ export const fetchBy = async ({byTag = null, orderedByField = null, order = 'asc
  * @returns {Product}
  */
 export const fetchById = async (id) =>{
-  console.log('Fetching product id:', id);
+  // console.log('Fetching product id:', id);
   const docSnap = await getDoc(doc(db, 'products', id));
 
   if (!docSnap.exists()) return null; // verify that doc even exists before validating
@@ -71,8 +70,8 @@ export const putById = async (id, data) =>{
   try {
     const docRef = doc(db, 'products', id);
     const updatedProduct = new Product({...data, modified_at: now(), created_at: data.created_at});
-    console.log("Now() = ",now());
-    console.log(updatedProduct.modified_at);
+    // console.log("Now() = ",now());
+    // console.log(updatedProduct.modified_at);
     await updateDoc(docRef, updatedProduct.toFirestore());
     return true;
   } catch (error) {
