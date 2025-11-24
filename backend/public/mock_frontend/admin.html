@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Demo</title>
+</head>
+<body>
+  <div>
+    <span>Navigation: </span>
+    <span><a href="./index.html">Back to index</a></span>
+  </div>
+  <h1>Admin CRUD Demo</h1>
+  <div>
+    <form id="CreateAdminForm">
+      <h2>Create</h2>
+      <div>
+        <label for="saveUsername">Username</label>
+        <input id="saveUsername" name="saveUsername" type="text" required/>
+      </div>
+      <div>
+        <label for="savePassword">Password</label>
+        <input id="savePassword" name="savePassword" type="password" required/>
+      </div>
+      <div>
+        <label for="saveConfirmPassword">Confirm password</label>
+        <input id="saveConfirmPassword" name="saveConfirmPassword" type="password" required/>
+      </div>
+      <input type="button" id="saveAdmin" value="Submit">
+    </form>
+    <form id="LoginAdminForm">
+      <h2>Login</h2>
+      <div>
+        <label for="loginUsername">Username</label>
+        <input id="loginUsername" name="loginUsername" type="text" required/>
+      </div>
+      <div>
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" name="loginPassword" type="password" required/>
+      </div>
+      <button id="login" type="button">Login</button>
+    </form>
+  </div>
+
+  <script type="module" src="./scripts/Admins.js" ></script>
+</body>
+</html>

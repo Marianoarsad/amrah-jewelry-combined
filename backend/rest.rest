@@ -20,6 +20,16 @@ Content-Type: application/json
   "description": "Sample item for testing",
   "image": "https://via.placeholder.com/150"
 }
+###
+
+### CREATE admin (should succeed)
+POST http://localhost:5000/api/signup
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "pass"
+}
 
 ###
 

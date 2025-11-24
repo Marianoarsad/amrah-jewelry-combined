@@ -4,7 +4,7 @@ import {collection, doc, addDoc, getDoc, getDocs, updateDoc, deleteDoc, orderBy,
 const now = () => new Date().toISOString();
 
 /**
- * @returns {Product[]}
+ * @returns {Product[]} 
  */
 
 const assembleArray = (products) => {
