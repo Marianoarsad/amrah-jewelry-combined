@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Carrois+Gothic+SC&family=Delius+Swash+Caps&family=League+Spartan:wght@100..900&family=Lexend+Mega:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Carrois+Gothic+SC&family=Delius+Swash+Caps&family=League+Spartan:wght@100..900&family=Lexend+Mega:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 html {
     box-sizing: border-box;
@@ -9,6 +9,12 @@ html {
 *:after {
     margin: 0;
     box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* ADMIN LOGIN */
@@ -192,6 +198,10 @@ html {
     transition: background-color 200ms ease-in-out;
 }
 
+.activeDisplay {
+    background-color: #c7454a;
+}
+
 #admin-page > menu > li:hover {
     background-color: #c7454a;
 }
@@ -229,10 +239,26 @@ html {
 
 #dashboard > h1 {
     margin-top: 3rem;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 #dashboard > h1, #dashboard > p {
     margin-left: 4rem;
+}
+
+#dashboard > p {
+    color: #b8b8b8;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 450;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 .dashboard-cards-container {
@@ -378,11 +404,13 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: .3rem;
 
     cursor: pointer;
 }
 
 .products-btn-add {
+
     background-color: #c96868;
     color: white;
     border: none;
@@ -405,13 +433,203 @@ table {
     border-collapse: collapse;
 }
 
-th {
-    text-align: left;
+table > tr > td > img {
+    aspect-ratio: 2/2;
+    width: 2rem;
+    height: 2rem;
 }
 
-th, td {
-    padding: .8rem;
-    border-bottom: #9b9b9b 1px solid;
+th {
+    padding: .6rem;
+    text-align: left;
+    font-size: .8rem;
+    font-family: "Carrois Gothic SC", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: #9b9b9b;
 }
+
+td {
+    font-size: .7rem;
+    padding: .6rem;
+    border-bottom: #9b9b9b 1px solid;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+.products-table-checkbox {
+    margin-left: 1.4rem;
+}
+
+.products-table-btn {
+    width: 5.7rem;
+    border: none;
+    border-radius: 5px;
+    padding: .65rem;
+
+    display: flex;
+    gap: .3rem;
+    color: white;
+    cursor: pointer;
+}
+
+.products-table-btn-update {
+    margin-right: .4rem;
+    background-color: #08cb00;
+
+    transition: background-color 200ms ease-in-out;
+}
+
+.products-table-btn-update:hover {
+    background-color: #416D19;
+}
+
+.products-table-btn-delete {
+    background-color: #c64b50;
+
+    transition: background-color 200ms ease-in-out;
+}
+
+.products-table-btn-delete:hover {
+    background-color: #660B05;
+}
+
+/* ADD PRODUCT FORM */
+
+dialog {
+    height: 69vh;
+    width: 50vw;
+
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+
+    padding: 0;
+
+    border: none;
+    background: none;
+    overflow: hidden;
+}
+
+.add-product-form-close-btn {
+    align-self: flex-start;
+}
+
+.add-product-form-close-btn > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#add-product-form {
+    z-index: 1;
+    height: 67vh;
+    width: 37vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+
+    background-color: #f8f8fa;
+    
+    border-radius: 15px;
+    padding: 1rem;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#add-product-form > span {
+    width: 80%;
+
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+#add-product-form > span > div > * {
+    display: block;
+}
+
+#add-product-form > span > div > label {
+    margin-top: .5rem;
+
+    font-size: .9rem;
+    font-family: "Carrois Gothic SC", sans-serif;
+    font-weight: 180;
+    font-style: normal;
+    color: #c7464e;
+}
+
+#add-product-form > span > div > input {
+    width: 100%;
+    height: 2rem;
+    padding: 1rem;
+
+    outline: none;
+    border-radius: 5px;
+    border: #c96868 1px solid;
+}
+
+#add-product-form > div {
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+#add-product-form > div > textarea {
+    height: 10rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: #c96868 1px solid;
+    resize: none;
+    outline: none;
+}
+
+#add-product-form > div > label {
+    margin-top: .5rem;
+
+    font-size: .9rem;
+    font-family: "Carrois Gothic SC", sans-serif;
+    font-weight: 180;
+    font-style: normal;
+    color: #c7464e;
+}
+
+.add-product-form-btn {
+    height: 2rem;
+    align-self: center;
+    width: 80%;
+    cursor: pointer;
+}
+
+.add-product-form-add-btn {
+    margin-top: .8rem;
+    background-color: #c7464e;
+    border: none;
+    color: white;
+}
+
+.add-product-form-cancel-btn {
+    height: 2rem;
+    width: 100%;
+    margin-top: .3rem;
+    background-color: white;
+    border: #c96868 1px solid;
+    color: #c96868;
+}
+
+/* ADD PRODUCT FORM */
 
 /* PRODUCTS */
